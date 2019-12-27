@@ -1,65 +1,99 @@
-body {
+* {
   margin: 0;
+  padding: 0;
 }
-svg {
-  height: 100vmin;
-  left: calc(50% - 50vmin);
-  position: absolute;
-  width: 100vmin;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.drop {
-  fill:#1d1636;
-}
-.drop-desktop {
+svg.filter {
   display: none;
 }
-@media (max-width: 600px) {
-  .drop-desktop {
-    display: block;
-  }
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #1e1737;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.icon {
-  fill: #ffd6b3;
-  stroke-width:0.125;
-  transition: transform 300ms cubic-bezier(.87,-0.91,.66,1.42), fill 300ms cubic-bezier(.87,-0.91,.66,1.42);
-  transform: scale(0.8);
+.wrapper {
+  overflow: hidden;
+  width: 300px;
+  height: 70vh;
+  min-height: 250px;
+  max-height: 600px;
+  background-color: rgba(255,255,255,0.1);
+  position: relative;
 }
-.icon--expanded {
-  transform: scale(1.15);
-  fill: #fff;
+.wrapper .box-fix {
+  position: absolute;
+  width: 100%;
+  height: 52px;
+  bottom: 0;
+  left: 0;
+  background-color: #fd6465;
 }
-.icon-sign {
-  transform-origin: 27.5% 78.5%;
+.wrapper .wrapper-inner {
+  filter: url("#goo");
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-.icon-drink {
-  transform-origin: 42% 77%;
+.wrapper .box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 43px;
+  background-color: #fd6465;
 }
-.icon-train {
-  transform-origin: 56% 77%;
+.wrapper .buble {
+  position: absolute;
+  width: 60px;
+  height: 50px;
+  background: #fd6465;
+  bottom: 20px;
+  left: 8px;
+  border-radius: 50%;
+  transition: 0.2s cubic-bezier(0.44, -0.35, 0.48, 1.5) all;
 }
-.icon-umbrella {
-  transform-origin: 70% 77%;
+.inspired {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #4b455f;
 }
-.icon-drink.icon--expanded ~ .bubble {
-  transform: translateX(13.9px);
+.inspired a {
+  color: #615c73;
 }
-.icon-train.icon--expanded ~ .bubble {
-  transform: translateX(28.4px);
+.box-fix {
+  display: flex;
 }
-.icon-umbrella.icon--expanded ~ .bubble {
-  transform: translateX(42.8px);
-}
-.hitarea {
+.box-fix li {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
   cursor: pointer;
+  flex-grow: 1;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.bubble {
-  transition: transform 300ms cubic-bezier(.87,-0.91,.66,1.42);
-  fill:#fd6465;
+.box-fix li.active {
+  cursor: initial;
 }
-.cover {
-  fill:#1d1636;
+.box-fix li.active svg {
+  transform: translateY(-10px) scale(1.1);
+  fill: #fff;
+  transition-delay: 0.1s;
+}
+.box-fix li svg {
+  width: 25px;
+  height: 25px;
+  fill: rgba(255,255,255,0.3);
+  transition: 0.2s 0s cubic-bezier(0.53, -0.07, 0.21, 1.98) transform;
 }
