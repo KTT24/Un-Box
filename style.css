@@ -22,9 +22,6 @@ svg {
     display: block;
   }
 }
-.background {
-  fill:#30284d;
-}
 .icon {
   fill: #ffd6b3;
   stroke-width:0.125;
